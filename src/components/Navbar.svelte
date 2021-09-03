@@ -10,7 +10,7 @@
         <span class="navbar-item">
           <a
             class="button is-success is-inverted"
-            href="https://github.com/wormwlrm/svelte-todo-list"
+            href="https://github.com/duchangkim/svelte-todolist"
             target="_blank"
           >
             <span class="icon">
