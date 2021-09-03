@@ -2,7 +2,6 @@
   <div class="hero-head">
     <Navbar />
   </div>
-
   <div class="hero-body">
     <div class="container has-text-centered">
       <div class="columns is-desktop">
@@ -20,6 +19,7 @@
 </section>
 
 <script lang="ts">
+	// 로컬스토리지와 연동해서 나갔다가 와도 유지되게 수정
 	import type {
 		IHandleKeyup,
 		ITodoItem, 
@@ -64,7 +64,6 @@
 		todos[index]['checked'] = !todos[index]['checked'];
 	}
 	const onHandleRemove: IHandleRemove = (id: number) => {
-		// 배열 아이템을 수정할 경우에는 원본 배열을 직접 수정하지 않고 재할당 한다
 		todos = todos.filter((todo) => todo.id !== id);
 	}
 	const onHandleModify: IHandleModify = (e: Event & { currentTarget: HTMLInputElement }, id: number) => {
@@ -73,7 +72,7 @@
 	}
 
 	// vue에서 computed와 비슷한 개념 -> 좀 더 찾아보기
-	$: lastId = todos[todos.length - 1].id || 0;
+	$: lastId = todos[todos.length - 1]?.id || 0;
 </script>
 
 <style>
