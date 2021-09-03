@@ -31,8 +31,6 @@
     IHandleRemove, 
     IHandleModify,
   } from '../interfaces';
-  import { createEventDispatcher } from 'svelte';
-  const dispatch = createEventDispatcher();
 
   export let todo: ITodoItem;
   export let onHandleCheck: IHandleCheck;

@@ -30,12 +30,8 @@
 	import Navbar from './components/Navbar.svelte';
 	import TodoInput from './components/TodoInput.svelte'
 	import TodoList from './components/TodoList.svelte';
-
-	let todos: Array<ITodoItem> = [
-		{ id: 0, checked: false, text: 'Finish svelte tutorial' },
-		{ id: 1, checked: false, text: 'Go to peterpan' },
-		{ id: 2, checked: false, text: 'Eat lunch' },
-	];
+	
+	let todos: Array<ITodoItem> = JSON.parse(localStorage.getItem('todos')) || [];
 	let todoInput = '';
 
 	const onHandleAdd = () => {
@@ -73,6 +69,7 @@
 
 	// vue에서 computed와 비슷한 개념 -> 좀 더 찾아보기
 	$: lastId = todos[todos.length - 1]?.id || 0;
+	$: todos ? localStorage.setItem('todos', JSON.stringify(todos)) : null;
 </script>
 
 <style>
